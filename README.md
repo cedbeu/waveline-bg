@@ -6,7 +6,7 @@
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![No Dependencies](https://img.shields.io/badge/dependencies-none-brightgreen.svg)]()
 
-Generate flowing SVG waveline patterns inspired by topographic maps using d3-contour (marching squares) over a procedural scalar field built from superimposed sine waves.. Perfect for hero sections, cards, and decorative UI elements.
+Generate flowing SVG waveline patterns inspired by topographic maps using d3-contour (marching squares) over a procedural scalar field built from superimposed sine waves. Perfect for hero sections, cards, and decorative UI elements.
 
 **[View Interactive Demo](index.html)** | **[GitHub](https://github.com/yourusername/waveline-bg)**
 
