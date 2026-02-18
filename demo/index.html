@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Waveline-BG v1.0.0</title>
+  <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+  <div class="container">
+
+    <h1>&#127754; Waveline-BG v1.0.0</h1>
+
+    <div class="note">
+      &#9989; <strong>Works without server</strong> &mdash;
+      No CORS, no build tool, just double-click.
+    </div>
+
+    <!-- ── Section 1: Body Background ──────────────────────────────────── -->
+    <div class="card">
+      <h2>1. Body Background</h2>
+      <p>The waveline pattern behind this page is generated on load via <code>dataUrl</code> mode.</p>
+      <button onclick="changeBodyBg()">&#128260; Regenerate</button>
+    </div>
+
+    <!-- ── Section 2: dataUrl mode ──────────────────────────────────────── -->
+    <div class="card">
+      <h2>2. Element Background &mdash; <code>dataUrl</code></h2>
+      <div id="demo1" class="demo-box">
+        <div class="demo-content">
+          <h3>dataUrl mode</h3>
+          <p>The SVG is encoded as a CSS <code>background-image</code>. It does not appear in the DOM tree.</p>
+        </div>
+      </div>
+      <button onclick="changeDemo1()">&#128260; Regenerate</button>
+    </div>
+
+    <!-- ── Section 3: inline mode ───────────────────────────────────────── -->
+    <div class="card">
+      <h2>3. Element Background &mdash; <code>inline</code></h2>
+      <div id="demo2" class="demo-box">
+        <div class="demo-content">
+          <h3>inline mode</h3>
+          <p>The SVG is a real DOM node (<code>position:absolute; z-index:-1</code>) behind the content.</p>
+        </div>
+      </div>
+      <button onclick="changeDemo2()">&#128260; Regenerate</button>
+    </div>
+
+    <!-- ── Section 4: Interactive Playground ───────────────────────────── -->
+    <div class="playground">
+      <h2>&#127918; Interactive Playground</h2>
+      <p>Uses <code>inline</code> mode with <code>backgroundColor</code> &mdash; identical to section 3.</p>
+
+      <div class="controls-grid">
+
+        <!-- Terrain controls -->
+        <div>
+          <h3 style="margin-bottom:14px;">Terrain</h3>
+          <div class="ctrl">
+            <label><span>Density</span><span class="val" id="vDensity">10</span></label>
+            <input type="range" id="density" min="5" max="20" value="10" step="1">
+          </div>
+          <div class="ctrl">
+            <label><span>Frequency</span><span class="val" id="vFreq">5</span></label>
+            <input type="range" id="freq" min="2" max="12" value="5" step="1">
+          </div>
+          <div class="ctrl">
+            <label><span>Amplitude</span><span class="val" id="vAmplitude">1.0</span></label>
+            <input type="range" id="amplitude" min="0.4" max="2" value="1" step="0.1">
+          </div>
+          <div class="ctrl">
+            <label><span>Bias</span><span class="val" id="vBias">0.0</span></label>
+            <input type="range" id="bias" min="-1" max="1" value="0" step="0.1">
+          </div>
+          <div class="ctrl">
+            <label><span>Seed</span></label>
+            <input type="number" id="seed" value="12345" min="0" max="999999999">
+          </div>
+        </div>
+
+        <!-- Style controls -->
+        <div>
+          <h3 style="margin-bottom:14px;">Style</h3>
+          <div class="ctrl">
+            <label><span>Stroke Min</span><span class="val" id="vStrokeMin">0.16</span></label>
+            <input type="range" id="strokeMin" min="0.05" max="0.5" value="0.16" step="0.01">
+          </div>
+          <div class="ctrl">
+            <label><span>Stroke Max</span><span class="val" id="vStrokeMax">0.26</span></label>
+            <input type="range" id="strokeMax" min="0.1" max="0.8" value="0.26" step="0.01">
+          </div>
+          <div class="ctrl">
+            <label><span>Opacity Min</span><span class="val" id="vOpacityMin">0.50</span></label>
+            <input type="range" id="opacityMin" min="0" max="1" value="0.5" step="0.05">
+          </div>
+          <div class="ctrl">
+            <label><span>Opacity Max</span><span class="val" id="vOpacityMax">1.00</span></label>
+            <input type="range" id="opacityMax" min="0" max="1" value="1" step="0.05">
+          </div>
+          <div class="ctrl">
+            <label><span>Stroke Color</span></label>
+            <input type="color" id="strokeColor" value="#888888">
+          </div>
+        </div>
+
+      </div>
+      
+      <!-- /controls-grid -->
+
+      <!-- Live preview zone: no CSS background (SVG layer provides it) -->
+      <div id="livePreview">
+        <div class="demo-content">
+          <h3>Live Preview</h3>
+          <p>Adjust controls above</p>
+        </div>
+      </div>
+
+      <div style="margin-top:14px;">
+        <button onclick="randomSeed()">&#127922; Random Seed</button>
+        <button onclick="resetControls()">&#8635; Reset</button>
+        <button onclick="downloadSvg()">&#128190; Download SVG</button>
+        <button onclick="copyConfig()">&#128203; Copy Config</button>
+      </div>
+
+      <!-- Displays the copyable WavelineBG.apply() call for current settings -->
+      <pre class="config-box" id="configBox"></pre>
+
+    </div><!-- /playground -->
+
+  </div><!-- /container -->
+
+  <!-- d3-contour must be loaded before waveline-bg.js -->
+  <script src="https://d3js.org/d3-contour.v2.min.js"></script>
+  <script src="../src/waveline-bg.js"></script>
+  <script src="./index.js"></script>
+</body>
+</html>

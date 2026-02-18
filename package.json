@@ -1,0 +1,10 @@
+{
+  "name": "waveline-bg",
+  "version": "1.0.0",
+  "description": "Organic waveline backgrounds for modern web design",
+  "main": "waveline-bg.js",
+  "keywords": ["background", "svg", "waveline", "topographic", "generative"],
+  "author": "Cédric BEUZIT",
+  "license": "MIT",
+  "peerDependencies": { "d3-contour": "^2.0.0" }
+}

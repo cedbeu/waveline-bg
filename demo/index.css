@@ -1,0 +1,212 @@
+/* =============================================================================
+   Waveline-BG v1.0.0 — Demo stylesheet
+   ============================================================================= */
+
+/* ── Reset & Base ──────────────────────────────────────────────────────────── */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  padding: 40px 20px;
+  /* Background is applied dynamically by index.js via WavelineBG.apply() */
+}
+
+/* ── Layout ────────────────────────────────────────────────────────────────── */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+h1 {
+  margin-bottom: 20px;
+  color: #333;
+  /* Ensure the heading stays above the body SVG background layer */
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Cards ─────────────────────────────────────────────────────────────────── */
+/* Each demo section is wrapped in a card with a semi-transparent background
+   so the body waveline pattern shows through from behind. */
+.card {
+  background: rgba(255, 255, 255, 0.92);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  /* Establish stacking context above the body SVG background */
+  position: relative;
+  z-index: 1;
+}
+
+.card h2 {
+  margin-bottom: 15px;
+}
+
+/* ── Buttons ───────────────────────────────────────────────────────────────── */
+button {
+  padding: 10px 22px;
+  background: #444;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  margin: 4px;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background: #000;
+}
+
+/* ── Inline code ───────────────────────────────────────────────────────────── */
+code {
+  background: #f4f4f4;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: monospace;
+  font-size: 13px;
+}
+
+/* ── Note banner ───────────────────────────────────────────────────────────── */
+.note {
+  background: #e8f5e9;
+  border: 1px solid #4caf50;
+  border-radius: 6px;
+  padding: 12px;
+  margin-bottom: 24px;
+  font-size: 14px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Demo boxes ────────────────────────────────────────────────────────────── */
+/* Containers used for the dataUrl and inline demo sections.
+   overflow:hidden is required to clip the inline SVG wrapper to the border-radius. */
+.demo-box {
+  position: relative;
+  height: 220px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  margin: 15px 0;
+  overflow: hidden;
+}
+
+/* Content inside a demo-box sits above the SVG background layer (z-index:1) */
+.demo-content {
+  position: relative;
+  z-index: 1;
+  padding: 20px;
+  color: #333;
+}
+
+/* ── Playground section ────────────────────────────────────────────────────── */
+.playground {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 1;
+}
+
+.playground h2 {
+  margin-bottom: 6px;
+}
+
+.playground > p {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+/* ── Controls grid ─────────────────────────────────────────────────────────── */
+.controls-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 640px) {
+  .controls-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Individual control row ────────────────────────────────────────────────── */
+.ctrl {
+  margin-bottom: 13px;
+}
+
+.ctrl label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 4px;
+}
+
+.ctrl input[type=range] {
+  width: 100%;
+}
+
+.ctrl input[type=number] {
+  width: 110px;
+  padding: 4px 6px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+.ctrl input[type=color] {
+  width: 56px;
+  height: 32px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Live value display next to each slider label */
+.val {
+  font-weight: 700;
+  color: #555;
+}
+
+/* ── Live Preview ──────────────────────────────────────────────────────────── */
+/* No CSS background here: the SVG layer (via inline mode + backgroundColor
+   option) provides the fill. A CSS background would cover the SVG wrapper
+   which sits at z-index:-1. */
+#livePreview {
+  position: relative;
+  height: 380px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden; /* clips the inline SVG wrapper to the border-radius */
+  margin-top: 24px;
+}
+
+#livePreview .demo-content {
+  padding: 28px;
+}
+
+/* ── Config display box ────────────────────────────────────────────────────── */
+/* Shows the copyable WavelineBG.apply() call matching current slider values. */
+.config-box {
+  background: #f8f8f8;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 14px;
+  font-family: monospace;
+  font-size: 12px;
+  overflow-x: auto;
+  margin-top: 14px;
+  max-height: 180px;
+  overflow-y: auto;
+}
