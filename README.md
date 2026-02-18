@@ -8,7 +8,7 @@
 
 Generate flowing SVG waveline patterns inspired by topographic maps using d3-contour (marching squares) over a procedural scalar field built from superimposed sine waves. Perfect for hero sections, cards, and decorative UI elements.
 
-**[View Interactive Demo](demo/index.html)** | **[GitHub](https://github.com/cedbeu/waveline-bg)**
+**[View Interactive Demo](index.html)** | **[GitHub](https://github.com/cedbeu/waveline-bg)**
 
 ---
 
@@ -17,9 +17,9 @@ Generate flowing SVG waveline patterns inspired by topographic maps using d3-con
 | File                 | Role                                                            |
 |----------------------|-----------------------------------------------------------------|
 | src/waveline-bg.js   | Library — no dependencies except d3-contour (currently via CDN) |
-| demo/index.html      | Demo page                                                       |
-| demo/index.css       | Demo page styles                                                |
-| demo/index.js        | Demo page logic                                                 |
+| index.html      | Demo page                                                       |
+| index.css       | Demo page styles                                                |
+| index.js        | Demo page logic                                                 |
 
 ---
 
@@ -599,7 +599,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ### Development
 
 1. Clone the repository
-2. Open `demo/index.html` in your browser (no build step required)
+2. Open `index.html` in your browser (no build step required)
 3. Make changes to `src/waveline-bg.js`
 4. Test in the interactive demo
 
