@@ -43,31 +43,31 @@ Generate flowing SVG waveline patterns inspired by topographic maps using d3-con
 1. Download `waveline-bg.js` from this repository
 2. Include it in your HTML:
 
-\`\`\`html
+```html
 <!-- Load d3-contour (dependency) -->
 <script src="https://d3js.org/d3-contour.v2.min.js"></script>
 
 <!-- Load Waveline-BG -->
 <script src="./waveline-bg.js"></script>
-\`\`\`
+```
 
 ### Option 2: CDN (coming soon)
 
-\`\`\`html
+```html
 <script src="https://cdn.jsdelivr.net/npm/waveline-bg@1.0.0/waveline-bg.min.js"></script>
-\`\`\`
+```
 
 ### Option 3: npm (coming soon)
 
-\`\`\`bash
+```bash
 npm install waveline-bg
-\`\`\`
+```
 
 ---
 
 ## 🚀 Quick Start
 
-\`\`\`html
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -103,7 +103,7 @@ npm install waveline-bg
   </script>
 </body>
 </html>
-\`\`\`
+```
 
 ---
 
@@ -189,53 +189,53 @@ The `seed` is a **deterministic random number** that controls **ONLY the terrain
 **Recommended:** Use integers between `0` and `999,999,999` for simplicity.
 
 **Examples:**
-\`\`\`javascript
+```javascript
 seed: 12345       // Valid - reproducible pattern
 seed: 0           // Valid - minimum value
 seed: 999999999   // Valid - easy to remember
-\`\`\`
+```
 
 ### Usage patterns
 
 #### 1. Deterministic (reproducible) - Fixed seed
 
-\`\`\`javascript
+```javascript
 WavelineBG.apply(element, {
   seed: 12345,  // Same seed = same pattern every time
   density: 10,
   freq: 5
 }, 'dataUrl');
-\`\`\`
+```
 
 **Use case:** Fixed design, brand consistency, version control
 
 #### 2. Random (different every time) - Generate random seed
 
-\`\`\`javascript
+```javascript
 WavelineBG.apply(element, {
   seed: Math.floor(Math.random() * 1e9),  // New pattern each time
   density: 10,
   freq: 5
 }, 'dataUrl');
-\`\`\`
+```
 
 **Use case:** "Regenerate" button, dynamic backgrounds
 
 #### 3. Automatic random - Omit seed parameter
 
-\`\`\`javascript
+```javascript
 WavelineBG.apply(element, {
   // No seed specified → automatically random
   density: 10,
   freq: 5
 }, 'dataUrl');
-\`\`\`
+```
 
 **Use case:** Simple usage, don't care about reproducibility
 
 ### Examples demonstrating seed behavior
 
-\`\`\`javascript
+```javascript
 // Same seed + same params = identical output
 WavelineBG.apply(elem1, { seed: 12345, density: 10, freq: 5 });
 WavelineBG.apply(elem2, { seed: 12345, density: 10, freq: 5 });
@@ -252,7 +252,7 @@ WavelineBG.apply(elem2, { seed: 12345, density: 20, freq: 10 });  // Dense
 WavelineBG.apply(elem1, { seed: 111, density: 10, freq: 5 });
 WavelineBG.apply(elem2, { seed: 222, density: 10, freq: 5 });
 // → Same visual style, but completely different wave patterns
-\`\`\`
+```
 
 ---
 
@@ -260,9 +260,9 @@ WavelineBG.apply(elem2, { seed: 222, density: 10, freq: 5 });
 
 ### `dataUrl` mode (recommended for dynamic backgrounds)
 
-\`\`\`javascript
+```javascript
 WavelineBG.apply(element, options, 'dataUrl');
-\`\`\`
+```
 
 - ✅ SVG encoded as data URL
 - ✅ Applied via CSS `background-image`
@@ -272,9 +272,9 @@ WavelineBG.apply(element, options, 'dataUrl');
 
 ### `inline` mode (recommended for static backgrounds)
 
-\`\`\`javascript
+```javascript
 WavelineBG.apply(element, options, 'inline');
-\`\`\`
+```
 
 - ✅ SVG inserted directly into DOM
 - ✅ Better vector quality
@@ -310,7 +310,7 @@ For natural-looking results:
 
 Save your configuration to recreate exact backgrounds:
 
-\`\`\`javascript
+```javascript
 const myConfig = {
   seed: 123456,
   density: 10,
@@ -324,7 +324,7 @@ localStorage.setItem('bgConfig', JSON.stringify(myConfig));
 // Restore later
 const saved = JSON.parse(localStorage.getItem('bgConfig'));
 WavelineBG.apply(document.body, saved, 'dataUrl');
-\`\`\`
+```
 
 ### Accessibility
 
@@ -340,7 +340,7 @@ For better readability:
 
 ### React
 
-\`\`\`jsx
+```jsx
 import { useEffect, useRef } from 'react';
 
 function MyComponent() {
@@ -359,11 +359,11 @@ function MyComponent() {
 
   return <div ref={ref}>Content</div>;
 }
-\`\`\`
+```
 
 ### Vue
 
-\`\`\`vue
+```vue
 <template>
   <div ref="container">Content</div>
 </template>
@@ -381,11 +381,11 @@ export default {
   }
 }
 </script>
-\`\`\`
+```
 
 ### Angular
 
-\`\`\`typescript
+```typescript
 import { Component, ElementRef, AfterViewInit } from '@angular/core';
 
 declare const WavelineBG: any;
@@ -405,7 +405,7 @@ export class MyComponent implements AfterViewInit {
     }, 'inline');
   }
 }
-\`\`\`
+```
 
 ---
 
@@ -473,12 +473,12 @@ If you want to explore similar techniques:
 
 #### 1. Scalar Field Generation
 
-\`\`\`javascript
+```javascript
 // Combine multiple sine waves with different phases and frequencies
 value = sin(x * freq + phase1) + sin(y * freq + phase2) 
       + 0.6 * sin((x+y) * freq + phase3)
       + 0.4 * sin((x-y) * freq + phase4)
-\`\`\`
+```
 
 The `seed` determines the random phases, ensuring reproducibility.
 
@@ -502,18 +502,18 @@ Uses **d3-contour** (implementation of marching squares):
 
 ### Subtle Gray (Default)
 
-\`\`\`javascript
+```javascript
 WavelineBG.apply(element, {
   density: 10,
   freq: 5,
   strokeColor: '#d4d4d4',
   seed: 12345
 }, 'dataUrl');
-\`\`\`
+```
 
 ### Bold Dark
 
-\`\`\`javascript
+```javascript
 WavelineBG.apply(element, {
   density: 15,
   freq: 7,
@@ -523,11 +523,11 @@ WavelineBG.apply(element, {
   strokeMax: 0.5,
   seed: 99999
 }, 'dataUrl');
-\`\`\`
+```
 
 ### Soft Pastel
 
-\`\`\`javascript
+```javascript
 WavelineBG.apply(element, {
   density: 12,
   freq: 6,
@@ -537,11 +537,11 @@ WavelineBG.apply(element, {
   opacityMax: 0.7,
   seed: 77777
 }, 'dataUrl');
-\`\`\`
+```
 
 ### Dense Blue
 
-\`\`\`javascript
+```javascript
 WavelineBG.apply(element, {
   density: 18,
   freq: 8,
@@ -551,7 +551,7 @@ WavelineBG.apply(element, {
   opacityMax: 1.0,
   seed: 54321
 }, 'dataUrl');
-\`\`\`
+```
 
 ---
 
@@ -561,10 +561,10 @@ WavelineBG.apply(element, {
 
 Make sure you load d3-contour **before** waveline-bg.js:
 
-\`\`\`html
+```html
 <script src="https://d3js.org/d3-contour.v2.min.js"></script>
 <script src="./waveline-bg.js"></script>
-\`\`\`
+```
 
 ### Background not showing
 
@@ -577,12 +577,12 @@ Check that:
 
 Before regenerating in `inline` mode, remove the previous SVG:
 
-\`\`\`javascript
+```javascript
 const existing = element.querySelector('div[style*="position: absolute"]');
 if (existing) existing.remove();
 
 WavelineBG.apply(element, newOptions, 'inline');
-\`\`\`
+```
 
 ### Lines appear jagged or pixelated
 
