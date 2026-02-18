@@ -1,6 +1,6 @@
 # Waveline-BG v1.0.0
 
-> **Organic waveline backgrounds for modern web design**
+> **Organic waveline backgrounds for smooth web design**
 
 [![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/yourusername/waveline-bg)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
@@ -8,18 +8,18 @@
 
 Generate flowing SVG waveline patterns inspired by topographic maps using d3-contour (marching squares) over a procedural scalar field built from superimposed sine waves. Perfect for hero sections, cards, and decorative UI elements.
 
-**[View Interactive Demo](index.html)** | **[GitHub](https://github.com/yourusername/waveline-bg)**
-
-## Files
+**[View Interactive Demo](demo/index.html)** | **[GitHub](https://github.com/cedbeu/waveline-bg)**
 
 ---
 
-| File            | Role                                        |
-|-----------------|---------------------------------------------|
-| waveline-bg.js  | Library — no dependencies except d3-contour |
-| index.html      | Demo page (structure only)                  |
-| index.css       | Demo page styles                            |
-| index.js        | Demo page logic                             |
+## Files
+
+| File                 | Role                                                            |
+|----------------------|-----------------------------------------------------------------|
+| src/waveline-bg.js   | Library — no dependencies except d3-contour (currently via CDN) |
+| demo/index.html      | Demo page                                                       |
+| demo/index.css       | Demo page styles                                                |
+| demo/index.js        | Demo page logic                                                 |
 
 ---
 
@@ -40,7 +40,7 @@ Generate flowing SVG waveline patterns inspired by topographic maps using d3-con
 
 ### Option 1: Direct Download
 
-1. Download `waveline-bg.js` from this repository
+1. Download `src/waveline-bg.js` from this repository
 2. Include it in your HTML:
 
 ```html
@@ -315,7 +315,7 @@ const myConfig = {
   seed: 123456,
   density: 10,
   freq: 5,
-  strokeColor: '#c0c0c0'
+  strokeColor: '#214d83'
 };
 
 // Save to localStorage
@@ -563,7 +563,7 @@ Make sure you load d3-contour **before** waveline-bg.js:
 
 ```html
 <script src="https://d3js.org/d3-contour.v2.min.js"></script>
-<script src="./waveline-bg.js"></script>
+<script src="./src/waveline-bg.js"></script>
 ```
 
 ### Background not showing
@@ -599,8 +599,8 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ### Development
 
 1. Clone the repository
-2. Open `index.html` in your browser (no build step required)
-3. Make changes to `waveline-bg.js`
+2. Open `demo/index.html` in your browser (no build step required)
+3. Make changes to `src/waveline-bg.js`
 4. Test in the interactive demo
 
 ---
@@ -623,9 +623,8 @@ See [LICENSE](LICENSE) file for details.
 
 ## 📞 Support
 
-- 🐛 **Issues:** [GitHub Issues](https://github.com/yourusername/waveline-bg/issues)
-- 💬 **Discussions:** [GitHub Discussions](https://github.com/yourusername/waveline-bg/discussions)
-- 📧 **Email:** your.email@example.com
+- 🐛 **Issues:** [GitHub Issues](https://github.com/cedbeu/waveline-bg/issues)
+- 💬 **Discussions:** [GitHub Discussions](https://github.com/cedbeu/waveline-bg/discussions)
 
 ---
 
@@ -636,6 +635,8 @@ See [LICENSE](LICENSE) file for details.
 - [ ] Separate terrain and color seeds
 - [ ] Background color in palette system
 - [ ] Preset gallery
+- [ ] To CDN
+- [ ] To npm
 
 ### v1.2.0
 - [ ] Animation support
@@ -649,6 +650,6 @@ See [LICENSE](LICENSE) file for details.
 
 ---
 
-**Made with 💙 by [Your Name]**
+**Made with 💙 by Cédric BEUZIT**
 
 *Inspired by topographic maps, designed for the web.*
