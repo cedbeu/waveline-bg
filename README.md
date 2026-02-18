@@ -8,7 +8,7 @@
 
 Generate flowing SVG waveline patterns inspired by topographic maps using d3-contour (marching squares) over a procedural scalar field built from superimposed sine waves. Perfect for hero sections, cards, and decorative UI elements.
 
-**[View Interactive Demo](index.html)** | **[GitHub](https://github.com/cedbeu/waveline-bg)**
+**[View Interactive Demo](src/index.html)** | **[GitHub](https://github.com/cedbeu/waveline-bg)**
 
 ---
 
